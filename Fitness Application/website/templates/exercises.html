@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}Exercises{% endblock %} 
+{% block content%}
+    <title>Z-Fit Exercise List</title>
+   
+    <style>
+        .exercise-description {
+            display: none;
+            margin-top: 10px; 
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Exercise List</h1>
+
+    <form method="POST" action="{{ url_for('views.exercises') }}">
+        <label for="bodyTypeSelect">Sort by Body Type:</label>
+        <select id="bodyTypeSelect" name="body_type">
+            <option value="all">All</option>
+            <option value="upper">Upper Body</option>
+            <option value="lower">Lower Body</option>
+            <option value="core">Core</option>
+        </select>
+        <input type="submit" value="Filter">
+    </form>
+    
+    <div style="margin-top: 20px;"?></div>
+
+    <div id="exerciseContainer">
+        <!-- The container to display exercises will be populated dynamically -->
+        {% for exercise in exercises %}
+            <div class="exercise" id="exercise{{ loop.index }}">
+                <p class="exercise-name">{{ exercise.name }}</p>
+                <p class="exercise-description">{{ exercise.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Adds click event listeners to each exercise, allowing for them to be clickable and display the exercise description
+            document.querySelectorAll('.exercise').forEach(function(exercise) {
+                exercise.addEventListener('click', function() {
+                    toggleExerciseDescription(this);
+                });
+            });
+        });
+
+        function toggleExerciseDescription(exercise) {
+            const description = exercise.querySelector('.exercise-description');
+            description.style.display = (description.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+{% endblock %}

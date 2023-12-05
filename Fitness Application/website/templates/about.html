@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Home - About Z-Fit{% endblock %} {% block content%} 
+<!--This allows for us to reuse the template from base.html and add to it-->
+
+<title>About My Fitness App</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1><b>Welcome to Z-Fit!</b></h1>
+
+    <ul>
+            <li>Our goal at Z-Fit is to provide its users with a comprehensive list of resistance training exercises that are catered to your preference.
+                All you need to do is create an account to fully access Z-Fit's features. Once an account is made, you will have full access to the apps features. 
+                These features include the following:
+            </li>
+            <br><br>
+            <h2>Exercise Glossary</h2>
+            <li>The main feature of Z-Fit is the comprehensive list of resistance training exercises. 
+                It is a list of many exercises that have all been coveniently compiled in one place and is updated regularly.</li>
+                <br><br>
+            <h2>Workout Journal</h2>
+        <li>The last feature on Z-Fit is access to a workout journal for all of our users. Once logged onto the app, you can track your workouts
+            by entering in the specific exercises you did that day and then saving it. This will allow for users to see their progress in their fitness journey!</li>
+        </ul>
+</body>
+{% endblock %}
